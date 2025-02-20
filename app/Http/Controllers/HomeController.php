@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class HomeController extends Controller
 {
@@ -24,48 +25,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        
-        return view('welcome', [
-            "car" => new Car(),
-            
+
+        return view('home', [
+            "car" => Car::car(),
         ]);
-        
-    }
-    public function list()
-    {
-        $list = Car::paginate(3);
-        return view('list', [
-            "list" => $list,
-            
-        ]);
-        
-    }
 
-    public function save(Request $request)
-    {
-        $car = Car::create($request->all());
 
-        return redirect()->back();
     }
-
-    public function update(Car $car, Request $request){
-        $car->update($request->all());
-        return back();
-    }
-    
-    
-    public function delete(Car $car){
-        $car->delete();
-        return redirect(route('list'));
-    }
-    
-
-    public function edit(Car $car)
-    {
-        $list = car::paginate(3);
-        return view("home", [
-            'car' => $car,
-        ]);
-    }
-
 }

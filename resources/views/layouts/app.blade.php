@@ -164,19 +164,15 @@
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">About</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Sobre</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Services</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Serviços</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Pricing</a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Contact</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Contato</a>
                         </li>
                     </ul>
                 </div>

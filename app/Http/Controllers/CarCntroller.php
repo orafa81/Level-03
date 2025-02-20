@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\Car;
@@ -12,15 +14,13 @@ class CarCntroller extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function index()
+
+    public function create()
     {
-        
-        return view('welcome', [
+        return view('createCar', [
             "car" => new Car(),
             
         ]);
-        
     }
     public function list()
     {
@@ -32,14 +32,16 @@ class CarCntroller extends Controller
         
     }
 
-    public function save(Request $request)
+    public function storage(Request $request)
     {
       
 
         $validated = $this->validator($request->all())->validate();
-        
+        #Pega a id do usuario que está logado
+        $validated["user_id"] = Auth::user()->id;
+
         $car =  Car::create($validated);
-        return redirect()->route('home')->with('success', 'Carro cadastrado!');
+        return redirect()->route('create.car')->with('success', 'Carro cadastrado!');
     }
 
     public function update(Car $car, Request $request){
@@ -56,16 +58,16 @@ class CarCntroller extends Controller
     }
     
     
-    public function delete(Car $car){
+    public function destroy(Car $car){
         $car->delete();
-        return redirect(route('list'));
+        return redirect(route('list.car'));
     }
     
 
     public function edit(Car $car)
     {
         $list = car::paginate(3);
-        return view("home", [
+        return view("createCar", [
             'car' => $car,
         ]);
     }

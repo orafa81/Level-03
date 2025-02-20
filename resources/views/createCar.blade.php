@@ -3,11 +3,11 @@
 @section('content')
     @if ($car->id)
         {{-- Se for um livro que já existe --}}
-        <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('update', $car) }}" method="post">
+        <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('update.car', $car) }}" method="post">
             @method('PUT')
         @else
             {{-- Se não, quer dizer que estou criando um novo --}}
-            <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('save') }}" method="post">
+            <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('storage.car') }}" method="post">
     @endif
     @csrf
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -76,13 +76,24 @@
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
         Salvar</button>
 
-    <a href="{{ route('home') }}"
+    <a href="{{ route('create.car') }}"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
         Novo</a>
-    <a href="{{ route('list') }}"
+    <a href="{{ route('list.car') }}"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-green-600 dark:hover:bg-green-700 focus:outline-none dark:focus:ring-green-800">
         Lista</a>
     </form>
+
+    @if ($car->id != '')
+        <div class="row mb-3">
+            <label class="col-md-4 col-form-label text-md-end">
+                {{ __('By') }}</label>
+
+            <div class="col-md-6">
+                <input class="form-control" value="{{ $car->user->name }}" disabled>
+            </div>
+        </div>
+    @endif
 
     @if (session('success'))
         <div class="mb-4 p-3 bg-green-200 text-green-700 rounded">
@@ -91,12 +102,12 @@
     @endif
 
     @if ($errors->any())
-    <div class="alert alert-danger">
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 @endsection

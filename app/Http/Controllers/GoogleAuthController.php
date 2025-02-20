@@ -36,8 +36,6 @@ class GoogleAuthController extends Controller
         $existingUser = User::where('email', $user->email)->first();
 
         if ($existingUser) {
-           
-            $existingUser->update(['avatar' => $user->avatar]);
             Auth::login($existingUser);
 
         } else {
@@ -47,13 +45,13 @@ class GoogleAuthController extends Controller
             ], [
                 'name' => $user->name,
                 'password' => bcrypt(Str::random(16)),
-                'avatar' => $user->avatar,
                 'email_verified_at' => now()
             ]);
             Auth::login($newUser);
+            return redirect('cliente/create');
         }
 
         
-        return redirect('/home');
+        return redirect('/');
     }
 }

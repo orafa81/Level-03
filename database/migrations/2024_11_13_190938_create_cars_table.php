@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('model');
             $table->decimal('price', 8, 2);
             $table->date('release_date');
+            $table->foreignId("user_id")->constrained();
             $table->timestamps();
         });
     }

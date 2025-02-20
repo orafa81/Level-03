@@ -61,11 +61,11 @@
                                 {{ $item->release_date }}
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route('edit', $item) }}"
+                                <a href="{{ route('edit.car', $item) }}"
                                     class="font-medium text-green-600 dark:text-green-500 hover:underline">Editar</a>
                             </td>
                             <td class="px-6 py-4 text-right">
-                                <a href="{{ route('delete', $item) }}"
+                                <a href="{{ route('destroy.car', $item) }}"
                                     class="font-medium text-red-600 dark:text-red-500 hover:underline">Excluir</a>
                             </td>
                         </tr>

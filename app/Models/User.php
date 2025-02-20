@@ -11,7 +11,9 @@ use Laravel\Sanctum\HasApiTokens;
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
-
+    const ADMIN_LEVEL = 30;
+    const AUTHOR_LEVEL = 20;
+    const DEFAULT_LEVEL = 0;
     /**
      * The attributes that are mass assignable.
      *
@@ -21,8 +23,18 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'level',
     ];
 
+    public function isAdministrator(){
+        return $this->level == User::ADMIN_LEVEL;
+    }
+
+    public function posts(){
+        return $this->hasMany(Car::class);
+    }
+    
+    
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -42,11 +54,14 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+
+
+
     public function cliente() {
         return $this->hasOne(Cliente::class);
     }
 
-    public function funcionario() {
-        return $this->hasOne(Funcionario::class);
-    }
+    // public function funcionario() {
+    //     return $this->hasOne(Funcionario::class);
+    // }
 }
