@@ -15,12 +15,11 @@ return new class extends Migration
     {
         Schema::create('cars', function (Blueprint $table) {
             $table->id();
-            $table->string('plate');
-            $table->string('mark')->nullable();
-            $table->string('model')->nullable();
-            $table->double('price')->nullable();
-            $table->string('cor')->nullable();
-            $table->date('release_date')->nullable();
+            $table->string('plate')->unique();;
+            $table->string('mark');
+            $table->string('model');
+            $table->decimal('price', 8, 2);
+            $table->date('release_date');
             $table->timestamps();
         });
     }

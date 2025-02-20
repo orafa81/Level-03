@@ -7,7 +7,17 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-
+    <style>
+        .imagem-fundo {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-image: url('../../../storage/imagens/chevroletonix2025-01.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+    </style>
 </head>
 
 <body>
@@ -22,12 +32,12 @@
                     @guest
                         <div class="flex items-center space-x-6 rtl:space-x-reverse">
                             @if (Route::has('login'))
-                                <a class="text-sm  text-blue-600 dark:text-blue-500 hover:underline"
+                                <a class="text-sm  text-rose-600 dark:text-rose-500 hover:underline"
                                     href="{{ route('login') }}">{{ __('Login') }}</a>
                             @endif
 
                             @if (Route::has('register'))
-                                <a class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                                <a class="text-white bg-rose-700 hover:bg-rose-800 focus:ring-4 focus:outline-none focus:ring-rose-300 font-medium rounded-lg text-sm px-4 py-2 text-center dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800"
                                     href="{{ route('register') }}">{{ __('Cadastre-se') }}</a>
                             @endif
                         </div>
@@ -58,16 +68,16 @@
                             id="userMenuButton" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="/docs/images/people/profile-picture-3.jpg"
+                            <img class="w-8 h-8 rounded-full" src="../../../storage/imagens/chevroletonix2025-01.jpg"
                                 alt="user photo">
                         </button>
                         <!-- Dropdown menu -->
                         <div class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded-lg shadow-sm dark:bg-gray-700 dark:divide-gray-600"
                             id="userMenu">
                             <div class="px-4 py-3">
-                                <span class="block text-sm text-gray-900 dark:text-white">Bonnie Green</span>
+                                <span class="block text-sm text-gray-900 dark:text-white">{{ Auth::user()->name }}</span>
                                 <span
-                                    class="block text-sm  text-gray-500 truncate dark:text-gray-400">name@flowbite.com</span>
+                                    class="block text-sm  text-gray-500 truncate dark:text-gray-400">{{ Auth::user()->email }}</span>
                             </div>
                             <ul class="py-2" aria-labelledby="user-menu-button">
                                 <li>
@@ -104,7 +114,8 @@
                                 button.addEventListener("click", function() {
                                     if (dropdown.classList.contains("hidden")) {
                                         dropdown.classList.remove("hidden");
-                                        dropdown.classList.add("opacity-0", "absolute", "translate-y-[150px]", "translate-x-[-120px]");
+                                        dropdown.classList.add("opacity-0", "absolute", "translate-y-[140px]",
+                                            "translate-x-[-120px]");
                                         setTimeout(() => {
                                             dropdown.classList.remove("opacity-0", "translate-y-[-10px]");
                                             dropdown.classList.add("opacity-100", "translate-y-0");
@@ -134,7 +145,7 @@
 
                     <button data-collapse-toggle="navbar-user" type="button"
                         class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
-                        aria-controls="navbar-user" aria-expanded="false">
+                        aria-controls="navbar-user" id="navbarUserButton" aria-expanded="false">
                         <span class="sr-only">Open main menu</span>
                         <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 17 14">
@@ -143,42 +154,48 @@
                         </svg>
                     </button>
                 </div>
-                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-user">
+                <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbarUser">
                     <ul
                         class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-rose-100 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-rose-900 md:dark:bg-rose-950 dark:border-rose-800">
                         <li>
                             <a href="/"
-                                class="block py-2 px-3 text-white bg-blue-700 rounded-sm md:bg-transparent md:text-blue-700 md:p-0 md:dark:text-blue-500"
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900"
                                 aria-current="page">Home</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">About</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">About</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Services</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Services</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Pricing</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Pricing</a>
                         </li>
                         <li>
                             <a href="#"
-                                class="block py-2 px-3 text-gray-900 rounded-sm hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700">Contact</a>
+                                class="block py-2 px-3 text-rose-950 rounded-sm hover:bg-rose-200 md:hover:bg-transparent md:hover:text-pink-900 md:p-0 dark:text-white md:dark:hover:text-pink-700 dark:hover:bg-pink-900 dark:hover:text-white md:dark:hover:bg-transparent dark:border-pink-900">Contact</a>
                         </li>
                     </ul>
                 </div>
+
+                <script>
+                    const menuButton = document.getElementById("navbarUserButton");
+                    const menu = document.getElementById("navbarUser");
+
+                    menuButton.addEventListener("click", () => {
+                        menu.classList.toggle("hidden");
+                    });
+                </script>
             </div>
         </nav>
 
     </div>
 
 
-
-
-
-    <main class="py-4">
+    <main class="">
         @yield('content')
     </main>
 </body>
