@@ -78,6 +78,7 @@ class CarCntroller extends Controller
             'mark' => 'required|max:50',
             'model' => 'required|max:50',
             'price' => 'required|numeric',
+            'description' => 'required|string',
             'release_date' => 'required|date',
         ]);
     }

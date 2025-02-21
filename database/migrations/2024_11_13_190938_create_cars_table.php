@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('mark');
             $table->string('model');
             $table->decimal('price', 8, 2);
+            $table->text('description');
             $table->date('release_date');
             $table->foreignId("user_id")->constrained();
             $table->timestamps();

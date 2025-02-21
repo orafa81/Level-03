@@ -34,4 +34,28 @@ class HomeController extends Controller
 
 
     }
+
+    public function products()
+    {
+
+        $list = Car::paginate(9);
+        return view('products', [
+            "list" => $list,
+            
+        ]);
+
+
+    }
+
+    public function product($id)
+    {
+
+        $product = Car::find($id);
+        return view('product', [
+            "product" => $product,
+            
+        ]);
+
+
+    }
 }

@@ -71,6 +71,23 @@
         </div>
     </div>
 
+    <div class="flex flex-wrap -mx-3 mb-6">
+        {{-- <div class="w-full px-3">
+            <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="release_date">
+                Data de Lançamento
+            </label>
+            <input
+                class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="release_date" value="{{ old('release_date', $car->release_date) }}" type="text"
+                placeholder="29/10/2002" name="release_date">
+            <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+        </div> --}}
+        <div class="w-full px-3">
+            <label for="description" class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">Descrição</label>
+            <textarea id="description" value="{{ old('description', $car->descripition) }}" name="description" rows="4" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" placeholder="Write product description here"></textarea>                    
+        </div>
+    </div>
+
 
     <button type="submit"
         class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">

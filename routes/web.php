@@ -18,6 +18,11 @@ use App\Http\Controllers\GoogleAuthController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/products', [HomeController::class, 'products'])->name('products');
+Route::get('/products/{id}', [HomeController::class, 'product'])->name('product');
+// Route::get('/product',  function(){
+//     return view('product');
+// });
 
 Auth::routes();
 
