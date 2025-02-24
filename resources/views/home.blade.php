@@ -2,9 +2,44 @@
 
 @section('content')
     @if (session('success'))
-        <div class="mb-4 p-3 bg-green-200 text-green-700 rounded">
-            {{ session('success') }}
+        <div id="alert_msg"
+            class="flex fixed top-10 right-4 items-center p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-green-50 dark:text-green-800"
+            role="alert">
+            <svg class="shrink-0 w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 20 20">
+                <path
+                    d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z" />
+            </svg>
+            <span class="sr-only">Info</span>
+            <div class="ms-3 text-sm font-medium">
+                {{ session('success') }}
+            </div>
+            <button type="button"
+                class="ms-auto -mx-1.5 -my-1.5 bg-green-50 text-green-500 rounded-lg focus:ring-2 focus:ring-green-400 p-1.5 hover:bg-green-200 inline-flex items-center justify-center h-8 w-8 dark:bg-green-50 dark:text-green-500 dark:hover:bg-green-200 dark:focus:ring-2 dark:focus:ring-green-400"
+                id="btnAlert" aria-label="Close">
+                <span class="sr-only">Close</span>
+                <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none"
+                    viewBox="0 0 14 14">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6" />
+                </svg>
+            </button>
         </div>
+
+        <script>
+            const buttonAlert = document.getElementById("btnAlert");
+            const alertM = document.getElementById("alert_msg");
+
+            setTimeout(() => {
+                alertM.classList.add('hidden');
+            }, 5000);
+
+            buttonAlert.addEventListener("click", () => {
+
+                alertM.classList.toggle("hidden");
+
+            });
+        </script>
     @endif
 
     <section class="bg-white dark:bg-rose-900">
@@ -13,7 +48,8 @@
                 <h1
                     class="max-w-2xl mb-4 text-4xl font-extrabold leading-none tracking-tight md:text-5xl xl:text-6xl dark:text-white">
                     Building digital <br>products & brands.</h1>
-                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">This free
+                <p class="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">This
+                    free
                     and open-source landing page template was built using the utility classes from <a
                         href="https://tailwindcss.com" class="hover:underline">Tailwind CSS</a> and based on the components
                     from the <a href="https://flowbite.com/docs/getting-started/introduction/"
@@ -379,7 +415,8 @@
                                         <svg class="h-5 w-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
                                             fill="none" viewBox="0 0 24 24">
                                             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                                stroke-width="2" d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
+                                                stroke-width="2"
+                                                d="M12 6C6.5 1 1 8 5.8 13l6.2 7 6.2-7C23 8 17.5 1 12 6Z" />
                                         </svg>
                                     </button>
                                     <div id="tooltip-add-to-favorites" role="tooltip"
@@ -475,8 +512,9 @@
             </div>
             <div class="w-full text-center">
                 <button type="button"
-                    class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-rose-100 dark:border-gray-300 dark:hover:border-rose-600 dark:bg-white dark:text-gray-950 dark:hover:bg-white dark:hover:text-rose-600 dark:focus:ring-gray-500">Mostrar Mais
-                    </button>
+                    class="rounded-lg border border-gray-200 bg-white px-5 py-2.5 text-sm font-medium text-gray-900 hover:bg-gray-100 hover:text-primary-700 focus:z-10 focus:outline-none focus:ring-4 focus:ring-rose-100 dark:border-gray-300 dark:hover:border-rose-600 dark:bg-white dark:text-gray-950 dark:hover:bg-white dark:hover:text-rose-600 dark:focus:ring-gray-500">Mostrar
+                    Mais
+                </button>
             </div>
         </div>
     </section>
@@ -494,7 +532,7 @@
                     de locador e disponibilizar seus automóveis para alugar. Crie sua conta já!</p>
 
                 <div class="space-y-4 sm:flex sm:space-y-0 sm:space-x-4">
-                    <a href="https://github.com/themesberg/landwind"
+                    <a href="{{ route('locador.create') }}"
                         class="inline-flex items-center justify-center w-full px-5 py-3 text-sm font-medium text-center text-gray-900 border border-gray-200 rounded-lg sm:w-auto hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-700 dark:hover:bg-gray-700 dark:focus:ring-gray-800">
                         Cadastre-se aqui!
                     </a>

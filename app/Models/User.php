@@ -26,15 +26,17 @@ class User extends Authenticatable
         'level',
     ];
 
-    public function isAdministrator(){
+    public function isAdministrator()
+    {
         return $this->level == User::ADMIN_LEVEL;
     }
 
-    public function posts(){
+    public function posts()
+    {
         return $this->hasMany(Car::class);
     }
-    
-    
+
+
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -57,11 +59,13 @@ class User extends Authenticatable
 
 
 
-    public function cliente() {
+    public function cliente()
+    {
         return $this->hasOne(Cliente::class);
     }
 
-    // public function funcionario() {
-    //     return $this->hasOne(Funcionario::class);
-    // }
+    public function locador()
+    {
+        return $this->hasOne(Locador::class);
+    }
 }

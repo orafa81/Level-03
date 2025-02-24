@@ -2,28 +2,24 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Car;
-use App\Models\Cliente;
+use App\Models\Locador;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-class ClienteController extends Controller
+class LocadorController extends Controller
 {
 
-    public function teste()
-    {
-        return view('createLocador', [
-            "cliente" => new Cliente(),
-        ]);
-    }
     public function create()
     {
-        return view('createUser', [
-            "cliente" => new Cliente(),
+
+        return view('createLocador', [
+            "locador" => new Locador(),
+            ""
         ]);
     }
+
     // public function list()
     // {
     //     $list = User::paginate(3);
@@ -39,14 +35,18 @@ class ClienteController extends Controller
 
 
         $validated = $this->validator($request->all())->validate();
-        #Pega a id do usuario que está logado
+
         $validated["user_id"] = Auth::user()->id;
 
-        $cliente = Cliente::create($validated);
+        $user = User::find(Auth::user()->id);  // Encontrar o usuário pelo ID
+        $user->level = $request->input('level');   // Atribuir um novo valor à coluna status
+        $user->save();
+
+        $locador = Locador::create($validated);
         return redirect()->route('home')->with('success', 'Cadastro concluido!');
     }
 
-    public function update(Cliente $cliente, Request $request)
+    public function update(Locador $locador, Request $request)
     {
         // $request->validate([
         //     'plate' => 'required|unique:cars',
@@ -55,37 +55,39 @@ class ClienteController extends Controller
         //     'price' => 'required|string',
         //     'cor' => 'required|string',
         // ]);
+        $validated = $this->validator($request->all())->validate();
 
-        $cliente->update($request->all());
+        $validated["user_id"] = Auth::user()->id;
+
+        $locador->update($validated);
         return back()->with('success', 'Conta editada!');
     }
 
 
-    public function destroy(Cliente $cliente)
+    public function destroy(locador $locador)
     {
-        $cliente->delete();
+        $locador->delete();
         return redirect(route('list.car'));
     }
 
 
-    public function edit(Cliente $cliente)
+    public function edit(Locador $locador)
     {
         return view("createCar", [
-            'cliente' => $cliente,
+            'locador' => $locador,
         ]);
     }
 
     public function validator(array $data)
     {
         return Validator::make($data, [
-            'cpf' => 'required|unique:clientes| max:14',
+            'store_name' => 'required|unique:locadors| max:50',
             'city' => 'required|max:50',
             'cep' => 'required|max:8',
             'road' => 'required|max:50',
             'neighborhood' => 'required|max:50',
             'state' => 'required|max:50',
             'number' => 'required|max:10',
-            'date_of_birth' => 'required|date',
         ]);
     }
 }

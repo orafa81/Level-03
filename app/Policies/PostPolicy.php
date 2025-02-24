@@ -64,6 +64,17 @@ class PostPolicy
 
     }
 
+    public function list(User $user, Car $car)
+    {
+        if (!$car->exists){
+            return $user->level >= User::AUTHOR_LEVEL;
+        } else {
+            return $user->level == User::AUTHOR_LEVEL && $user->id == $car->user_id
+                || $user->level == User::ADMIN_LEVEL;
+        }
+
+    }
+
     /**
      * Determine whether the user can delete the model.
      *
