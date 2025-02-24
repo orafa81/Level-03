@@ -425,9 +425,9 @@
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-300 dark:bg-white">
                         <div class="h-56 w-full">
                             <a href="{{route('product', $item->id)}}">
-                                <img class="mx-auto h-full dark:hidden" src="../../../storage/imagens/kwid.png"
+                                <img class="mx-auto h-full dark:hidden" src="../../../imagens/kwid.png"
                                     alt="" />
-                                <img class="mx-auto hidden h-full dark:block" src="../../../storage/imagens/onix.png"
+                                <img class="mx-auto hidden h-full dark:block" src="../../../imagens/onix.png"
                                     alt="" />
                             </a>
                         </div>

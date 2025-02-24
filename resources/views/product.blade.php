@@ -322,7 +322,7 @@
                 <div class="shrink-0 max-w-md lg:max-w-lg mx-auto">
                     <img class="w-full dark:hidden" src="https://flowbite.s3.amazonaws.com/blocks/e-commerce/imac-front.svg"
                         alt="" />
-                    <img class="w-full hidden dark:block" src="../../../storage/imagens/onix.png" alt="" />
+                    <img class="w-full hidden dark:block" src="../../../imagens/onix.png" alt="" />
                 </div>
 
                 <div class="mt-6 sm:mt-8 lg:mt-0">

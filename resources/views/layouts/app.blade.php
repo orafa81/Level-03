@@ -70,7 +70,7 @@
                             id="userMenuButton" aria-expanded="false" data-dropdown-toggle="user-dropdown"
                             data-dropdown-placement="bottom">
                             <span class="sr-only">Open user menu</span>
-                            <img class="w-8 h-8 rounded-full" src="../../../storage/imagens/chevroletonix2025-01.jpg"
+                            <img class="w-8 h-8 rounded-full" src="../../../imagens/chevroletonix2025-01.jpg"
                                 alt="user photo">
                         </button>
                         <!-- Dropdown menu -->
