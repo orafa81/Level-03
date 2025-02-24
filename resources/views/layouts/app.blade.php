@@ -12,7 +12,7 @@
             margin: 0;
             padding: 0;
             height: 100vh;
-            background-image: url('../../../storage/imagens/chevroletonix2025-01.jpg');
+            background-image: url('../../../imagens/chevroletonix2025-01.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
