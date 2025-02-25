@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('neighborhood');
             $table->string('state');
             $table->string('number');
-            $table->foreignId("user_id")->constrained();
+            $table->foreignId("user_id")->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

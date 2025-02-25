@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Locador;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Validator;
@@ -38,7 +39,7 @@ class CarCntroller extends Controller
 
         $validated = $this->validator($request->all())->validate();
         #Pega a id do usuario que está logado
-        $validated["user_id"] = Auth::user()->id;
+        $validated["locador_id"] = Auth::user()->locador->id;
 
         $car =  Car::create($validated);
         return redirect()->route('create.car')->with('success', 'Carro cadastrado!');

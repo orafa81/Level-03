@@ -22,7 +22,7 @@ return new class extends Migration {
             $table->string('state');
             $table->string('number');
             $table->date('date_of_birth');
-            $table->foreignId("user_id")->constrained();
+            $table->foreignId("user_id")->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

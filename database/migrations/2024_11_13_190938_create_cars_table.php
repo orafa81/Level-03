@@ -21,7 +21,7 @@ return new class extends Migration
             $table->decimal('price', 8, 2);
             $table->text('description');
             $table->date('release_date');
-            $table->foreignId("user_id")->constrained();
+            $table->foreignId("locador_id")->constrained()->onDelete('cascade');;
             $table->timestamps();
         });
     }

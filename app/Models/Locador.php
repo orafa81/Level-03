@@ -24,4 +24,9 @@ class Locador extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    public function car()
+    {
+        return $this->hasMany(Car::class);
+    }
 }

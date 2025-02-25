@@ -377,7 +377,7 @@
                     <div
                         class="rounded-lg border border-gray-200 bg-white p-6 shadow-sm dark:border-gray-300 dark:bg-white">
                         <div class="h-56 w-full">
-                            <a href="#">
+                            <a href="{{route('product', $item->id)}}">
                                 <img class="mx-auto h-full dark:hidden" src="../../../imagens/kwid.png"
                                     alt="" />
                                 <img class="mx-auto hidden h-full dark:block" src="../../../imagens/onix.png"

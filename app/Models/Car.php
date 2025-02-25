@@ -15,10 +15,10 @@ class Car extends Model
         'price',
         'description',
         'release_date',
-        "user_id"
+        "locador_id"
     ];
 
-    public function user(){
+    public function locador(){
         return $this->belongsTo(User::class);
     }
     
