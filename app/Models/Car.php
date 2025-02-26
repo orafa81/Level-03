@@ -19,7 +19,7 @@ class Car extends Model
     ];
 
     public function locador(){
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(Locador::class);
     }
 
     public function alugueis()

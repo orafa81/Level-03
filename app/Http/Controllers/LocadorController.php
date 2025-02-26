@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\Validator;
 class LocadorController extends Controller
 {
 
+    public function geral()
+    {
+        $locador = auth()->user()->locador;
+        $info = $locador->car()->paginate(9);
+        return view('viewCar', [
+            "locador" => $locador,
+            "info" => $info,
+        ]);
+    }
     public function create()
     {
 
@@ -38,15 +47,15 @@ class LocadorController extends Controller
 
         $validated["user_id"] = Auth::user()->id;
 
-        $user = User::find(Auth::user()->id);  // Encontrar o usuário pelo ID
-        $user->level = $request->input('level');   // Atribuir um novo valor à coluna status
+        $user = User::find(Auth::user()->id);
+        $user->level = $request->input('level');  // Encontrar o usuário pelo ID   // Atribuir um novo valor à coluna status
         $user->save();
 
         $locador = Locador::create($validated);
-        return redirect()->route('home')->with('success', 'Cadastro concluido!');
+        return redirect()->route('locador.geral')->with('success', 'Cadastro concluido!');
     }
 
-    public function update(Locador $locador, Request $request)
+        public function update(Locador $locador, Request $request)
     {
         // $request->validate([
         //     'plate' => 'required|unique:cars',
@@ -55,12 +64,11 @@ class LocadorController extends Controller
         //     'price' => 'required|string',
         //     'cor' => 'required|string',
         // ]);
-        $validated = $this->validator($request->all())->validate();
+       
 
-        $validated["user_id"] = Auth::user()->id;
 
-        $locador->update($validated);
-        return back()->with('success', 'Conta editada!');
+        $locador->update($request->all());
+        return redirect()->route('locador.geral')->with('success', 'Conta editada!');
     }
 
 
@@ -73,7 +81,7 @@ class LocadorController extends Controller
 
     public function edit(Locador $locador)
     {
-        return view("createCar", [
+        return view("createLocador", [
             'locador' => $locador,
         ]);
     }

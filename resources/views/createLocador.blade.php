@@ -3,7 +3,7 @@
 @section('content')
     @if ($locador->id)
         {{-- Se for um livro que já existe --}}
-        <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('locador.upddate', $locador) }}" method="post">
+        <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('locador.update', $locador) }}" method="post">
             @method('PUT')
         @else
             {{-- Se não, quer dizer que estou criando um novo --}}

@@ -5,8 +5,9 @@ namespace App\Policies;
 use App\Models\Car;
 use App\Models\User;
 use Illuminate\Auth\Access\HandlesAuthorization;
+use Illuminate\Support\Facades\Log;
 
-class PostPolicy
+class CarPolicy
 {
     use HandlesAuthorization;
 
@@ -19,20 +20,18 @@ class PostPolicy
     public function viewAny(User $user)
     {
         return true;
-
     }
 
     /**
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $post
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function view(User $user, Car $car)
     {
         return true;
-
     }
 
     /**
@@ -50,49 +49,44 @@ class PostPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $post
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function update(User $user, Car $car)
     {
-        if (!$car->exists){
+
+
+        if (!$car->exists) {
+            #se a caragem nao existe permite salvar
+            #isso irá quando voce quiser esconder o botão de salvar
+            #de usuários que nao podem atualizar a caragem
             return $user->level >= User::AUTHOR_LEVEL;
         } else {
-            return $user->level == User::AUTHOR_LEVEL && $user->id == $car->user_id
+            return $user->level == User::AUTHOR_LEVEL && $user->id == $car->locador->user->id
                 || $user->level == User::ADMIN_LEVEL;
         }
-
-    }
-
-    public function list(User $user, Car $car)
-    {
-        if (!$car->exists){
-            return $user->level >= User::AUTHOR_LEVEL;
-        } else {
-            return $user->level == User::AUTHOR_LEVEL && $user->id == $car->user_id
-                || $user->level == User::ADMIN_LEVEL;
-        }
-
+        
     }
 
     /**
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $post
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function delete(User $user, Car $car)
     {
-        return $user->level == User::AUTHOR_LEVEL && $user->id == $car->user_id
+        return $user->level == User::AUTHOR_LEVEL && $user->id == $car->locador->user->id
             || $user->level == User::ADMIN_LEVEL && $car->exists;
+       
     }
 
     /**
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $post
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function restore(User $user, Car $car)
@@ -104,13 +98,11 @@ class PostPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\Car  $post
+     * @param  \App\Models\Car  $car
      * @return \Illuminate\Auth\Access\Response|bool
      */
     public function forceDelete(User $user, Car $car)
     {
         //
     }
-
-    
 }

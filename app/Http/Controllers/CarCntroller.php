@@ -18,6 +18,9 @@ class CarCntroller extends Controller
 
     public function create()
     {
+        // if (Gate::denies('create')) {
+        //     return response()->json(['error' => 'Você não tem permissão para editar este carro'], 403);
+        // }
         return view('createCar', [
             "car" => new Car(),
             
@@ -42,7 +45,7 @@ class CarCntroller extends Controller
         $validated["locador_id"] = Auth::user()->locador->id;
 
         $car =  Car::create($validated);
-        return redirect()->route('create.car')->with('success', 'Carro cadastrado!');
+        return redirect()->route('locador.geral')->with('success', 'Carro cadastrado!');
     }
 
     public function update(Car $car, Request $request){
@@ -55,13 +58,15 @@ class CarCntroller extends Controller
         // ]);
 
         $car->update($request->all());
-        return back()->with('success', 'Carro editado!');
+        return redirect()->route('locador.geral')->with('success', 'Carro editado!');
     }
     
     
     public function destroy(Car $car){
+        
+        
         $car->delete();
-        return redirect(route('list.car'));
+        return redirect(route('locador.geral'));
     }
     
 

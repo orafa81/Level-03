@@ -2,7 +2,7 @@
 
 @section('content')
 
-    @if (!$alugados && count($alugados) > 0)
+    @if (!($alugados && count($alugados) > 0))
         <p>Este cliente não tem carros alugados no momento.</p>
     @else
         <section class="bg-white dark:bg-rose-900">
