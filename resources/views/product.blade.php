@@ -383,19 +383,23 @@
                             </svg>
                             Adicionar os favoritos
                         </a>
+                        <form action="{{ route('aluguel.store') }}" method="POST">
+                            @csrf
+                            <input type="text" value="{{ $product->id }}" name="car_id" hidden>
+                            <button type="submit"
+                                class="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 flex items-center justify-center"
+                                role="button">
+                                <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                                    width="24" height="24" fill="none" viewBox="0 0 24 24">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2"
+                                        d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
+                                </svg>
 
-                        <a href="#" title=""
-                            class="text-white mt-4 sm:mt-0 bg-primary-700 hover:bg-primary-800 focus:ring-4 focus:ring-primary-300 font-medium rounded-lg text-sm px-5 py-2.5 dark:bg-rose-600 dark:hover:bg-rose-700 dark:focus:ring-rose-800 flex items-center justify-center"
-                            role="button">
-                            <svg class="w-5 h-5 -ms-2 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
-                                width="24" height="24" fill="none" viewBox="0 0 24 24">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
-                                    stroke-width="2"
-                                    d="M4 4h1.5L8 16m0 0h8m-8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm8 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm.75-3H7.5M11 7H6.312M17 4v6m-3-3h6" />
-                            </svg>
+                                Confirmar
+                            </button>
+                        </form>
 
-                            Confirmar
-                        </a>
                     </div>
 
                     <hr class="my-6 md:my-8 border-gray-200 dark:border-gray-800" />
@@ -459,7 +463,9 @@
 
                 <div class="mt-6 min-w-0 flex-1 space-y-3 sm:mt-0">
                     <div class="flex items-center gap-2">
-                        <p class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">5
+                        <p
+                            class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">
+                            5
                         </p>
                         <svg class="h-4 w-4 shrink-0 text-yellow-300" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -476,7 +482,9 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <p class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">4
+                        <p
+                            class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">
+                            4
                         </p>
                         <svg class="h-4 w-4 shrink-0 text-yellow-300" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -493,7 +501,9 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <p class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">3
+                        <p
+                            class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">
+                            3
                         </p>
                         <svg class="h-4 w-4 shrink-0 text-yellow-300" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -510,7 +520,9 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <p class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">2
+                        <p
+                            class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">
+                            2
                         </p>
                         <svg class="h-4 w-4 shrink-0 text-yellow-300" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -527,7 +539,9 @@
                     </div>
 
                     <div class="flex items-center gap-2">
-                        <p class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">1
+                        <p
+                            class="w-2 shrink-0 text-start text-sm font-medium leading-none text-gray-900 dark:text-gray-900">
+                            1
                         </p>
                         <svg class="h-4 w-4 shrink-0 text-yellow-300" aria-hidden="true"
                             xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor"
@@ -1000,7 +1014,8 @@
                         </div>
                         <div class="col-span-2">
                             <label for="title"
-                                class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-900">Review title</label>
+                                class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-900">Review
+                                title</label>
                             <input type="text" name="title" id="title"
                                 class="block w-full rounded-lg border border-gray-300 bg-gray-50 p-2.5 text-sm text-gray-900 focus:border-primary-600 focus:ring-primary-600 dark:border-gray-300 dark:bg-gray-100 dark:text-gray-900 dark:placeholder:text-gray-500 dark:focus:border-primary-500 dark:focus:ring-primary-500"
                                 required="" />
@@ -1017,7 +1032,8 @@
                                     class="text-primary-600 hover:underline dark:text-rose-700">Send a report</a>.</p>
                         </div>
                         <div class="col-span-2">
-                            <p class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-900">Add real photos of the
+                            <p class="mb-2 block text-sm font-medium text-gray-900 dark:text-gray-900">Add real photos of
+                                the
                                 product to help other customers <span
                                     class="text-gray-500 dark:text-gray-500">(Optional)</span></p>
                             <div class="flex w-full items-center justify-center">

@@ -21,6 +21,16 @@ class Car extends Model
     public function locador(){
         return $this->belongsTo(User::class);
     }
+
+    public function alugueis()
+    {
+        return $this->hasMany(Aluguel::class);
+    }
+
+    public function aluguelAtivo()
+    {
+        return $this->hasOne(Aluguel::class)->whereNull('date_end');
+    }
     
     use HasFactory;
 }

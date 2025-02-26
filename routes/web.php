@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AluguelController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LocadorController;
@@ -49,6 +50,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/cliente/{cliente}', [ClienteController::class, "edit"])->name('cliente.edit');
     Route::put("/cliente/{cliente}", [ClienteController::class, "update"])->name('cliente.update');
     Route::delete('/cliente/{cliente}', [ClienteController::class, "destroy"])->name('clienete.destroy');
+    Route::get('/cliente/alugados',  [ClienteController::class, 'alugados'])->name('car.alugados');
 });
 
 Route::middleware(['auth'])->group(function () {
@@ -60,6 +62,14 @@ Route::middleware(['auth'])->group(function () {
     Route::delete('/locador/{locador}', [LocadorController::class, "destroy"])->name('locador.destroy');
 });
 
+Route::post('/aluguel',  [AluguelController::class, 'store'])->name('aluguel.store');
+
+Route::middleware(['auth'])->group(function () {
+    
+});
+
+
+Route::get('/n/alugados',  [ClienteController::class, 'alugados'])->name('car.alugados');
 
 Route::get('api/auth/google/redirect', [GoogleAuthController::class, 'redirect'])->name('auth.google.redirect');
 

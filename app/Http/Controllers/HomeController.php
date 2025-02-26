@@ -25,8 +25,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-
-        $list = Car::paginate(3);
+        
+        $list = Car::whereDoesntHave('aluguelAtivo')->paginate(3);
         return view('home', [
             "list" => $list,
             
@@ -38,8 +38,8 @@ class HomeController extends Controller
     public function products()
     {
 
-        $list = Car::paginate(9);
-        return view('products', [
+        $list = Car::whereDoesntHave('aluguelAtivo')->paginate(9);
+        return view('home', [
             "list" => $list,
             
         ]);

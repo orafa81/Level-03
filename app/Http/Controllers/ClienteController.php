@@ -18,6 +18,16 @@ class ClienteController extends Controller
             "cliente" => new Cliente(),
         ]);
     }
+
+    public function alugados()
+    {
+        $cliente = auth()->user()->cliente;
+        $alugados = $cliente->alugueis()->paginate(9);
+        return view('carAlugados', [
+            "alugados" => $alugados,
+        ]);
+    }
+
     public function create()
     {
         return view('createUser', [
