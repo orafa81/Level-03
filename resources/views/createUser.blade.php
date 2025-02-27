@@ -61,7 +61,7 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="number" value="{{ old('number', $cliente->number) }}" type="text" placeholder="Rio Grande do Norte"
+                id="number" value="{{ old('number', $cliente->number) }}" type="text" placeholder="66"
                 name="number">
             <p class="text-gray-600 text-xs italic">Digite o numero residencial</p>
         </div>
@@ -74,7 +74,7 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="road" value="{{ old('road', $cliente->road) }}" type="text" placeholder="29.10.2002"
+                id="road" value="{{ old('road', $cliente->road) }}" type="text" placeholder="Rua da João Menezes"
                 name="road">
             <p class="text-gray-600 text-xs italic">Digite seu endereço</p>
         </div>
@@ -88,7 +88,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="cep" value="{{ old('cep', $cliente->cep) }}" type="text"
-                placeholder="29.10.2002" name="cep">
+                placeholder="12354-000" name="cep">
             <p class="text-gray-600 text-xs italic">Digite seu cep</p>
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">

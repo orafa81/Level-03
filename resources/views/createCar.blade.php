@@ -18,8 +18,8 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="plate" type="text" value="{{ old('plate', $car->plate) }}" name="plate"
-                placeholder="God of War">
-            <p class="text-gray-600 text-xs italic">Digite o nome do jogo.</p>
+                placeholder="EAR1E84">
+            <p class="text-gray-600 text-xs italic">Digite o numero da placa.</p>
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
             <label class="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2" for="model">
@@ -28,8 +28,8 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="model" type="text" value="{{ old('model', $car->model) }}" name="model"
-                placeholder="God of War">
-            <p class="text-gray-600 text-xs italic">Digite o nome do jogo.</p>
+                placeholder="Onix">
+            <p class="text-gray-600 text-xs italic">Digite o modelo do carro.</p>
         </div>
 
 
@@ -41,9 +41,9 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="mark" value="{{ old('mark', $car->mark) }}" type="text" placeholder="Santa Monica"
+                id="mark" value="{{ old('mark', $car->mark) }}" type="text" placeholder="Chevrolet"
                 name="mark">
-            <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+            <p class="text-gray-600 text-xs italic">Digite a marca do carro</p>
         </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -53,9 +53,9 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="price" value="{{ old('price', $car->price) }}" type="text" placeholder="Santa Monica"
+                id="price" value="{{ old('price', $car->price) }}" type="text" placeholder="R$100.00"
                 name="price">
-            <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+            <p class="text-gray-600 text-xs italic">Digite o Preço</p>
         </div>
     </div>
     <div class="flex flex-wrap -mx-3 mb-6">
@@ -66,8 +66,8 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="release_date" value="{{ old('release_date', $car->release_date) }}" type="text"
-                placeholder="29/10/2002" name="release_date">
-            <p class="text-gray-600 text-xs italic">Make it as long and as crazy as you'd like</p>
+                placeholder="29.10.2002" name="release_date">
+            <p class="text-gray-600 text-xs italic">Data de Lançamento</p>
         </div>
     </div>
 

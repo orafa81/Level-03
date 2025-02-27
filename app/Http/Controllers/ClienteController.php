@@ -90,7 +90,7 @@ class ClienteController extends Controller
         return Validator::make($data, [
             'cpf' => 'required|unique:clientes| max:14',
             'city' => 'required|max:50',
-            'cep' => 'required|max:8',
+            'cep' => 'required|max:9',
             'road' => 'required|max:50',
             'neighborhood' => 'required|max:50',
             'state' => 'required|max:50',

@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+    <script src="../../../js/jquery-3.6.0.min.js"></script>
+    <script src="../../../js/jquery.mask.min.js"></script>
+    <script src="../../../js/main.js"></script>
     <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
     <style>
         .imagem-fundo {

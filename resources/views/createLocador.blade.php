@@ -21,7 +21,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
                 id="store_name" type="text" value="{{ old('store_name', $locador->store_name) }}" name="store_name"
-                placeholder="999.999.999-00">
+                placeholder="CarTop">
             <p class="text-gray-600 text-xs italic">Digite o nome da loja</p>
         </div>
         <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
@@ -66,7 +66,7 @@
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                 id="number" value="{{ old('number', $locador->number) }}" type="text"
-                placeholder="Rio Grande do Norte" name="number">
+                placeholder="66" name="number">
             <p class="text-gray-600 text-xs italic">Digite o numero residencial</p>
         </div>
     </div>
@@ -78,7 +78,7 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="road" value="{{ old('road', $locador->road) }}" type="text" placeholder="29.10.2002"
+                id="road" value="{{ old('road', $locador->road) }}" type="text" placeholder="Rua joão Menezes"
                 name="road">
             <p class="text-gray-600 text-xs italic">Digite seu endereço</p>
         </div>
@@ -92,7 +92,7 @@
             </label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                id="cep" value="{{ old('cep', $locador->cep) }}" type="text" placeholder="29.10.2002"
+                id="cep" value="{{ old('cep', $locador->cep) }}" type="text" placeholder="12345-000"
                 name="cep">
             <p class="text-gray-600 text-xs italic">Digite seu cep</p>
         </div>
