@@ -91,7 +91,7 @@ class LocadorController extends Controller
         return Validator::make($data, [
             'store_name' => 'required|unique:locadors| max:50',
             'city' => 'required|max:50',
-            'cep' => 'required|max:8',
+            'cep' => 'required|max:9',
             'road' => 'required|max:50',
             'neighborhood' => 'required|max:50',
             'state' => 'required|max:50',

@@ -3,11 +3,11 @@
 @section('content')
     @if ($cliente->id)
         {{-- Se for um livro que já existe --}}
-        <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('cliente.upddate', $cliente) }}" method="post">
+        <form class="w-full max-w-4xl mt-8 mb-30 m-auto" action="{{ route('cliente.upddate', $cliente) }}" method="post">
             @method('PUT')
         @else
             {{-- Se não, quer dizer que estou criando um novo --}}
-            <form class="w-full max-w-4xl mt-8 m-auto" action="{{ route('cliente.storage') }}" method="post">
+            <form class="w-full max-w-4xl mt-8 mb-30 m-auto" action="{{ route('cliente.storage') }}" method="post">
     @endif
     @csrf
     <div class="flex -mx-3 mb-6">
